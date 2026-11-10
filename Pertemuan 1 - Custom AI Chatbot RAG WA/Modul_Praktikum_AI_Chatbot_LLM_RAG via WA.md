@@ -1969,7 +1969,7 @@ Setelah mempelajari modul tersebut, kerjakan langkah-langkah berikut:
 3. Bangun sebuah **website sederhana** tentang lapak tersebut dan **deploy ke Vercel** hingga dapat diakses publik.
 4. Website wajib memiliki **chatbot berbasis RAG** yang menggunakan data produk hasil scraping.
 5. Buat **gateway WhatsApp** yang terhubung ke chatbot dengan data yang sama.
-6. Sertakan **link Vercel** di dalam laporan — jawaban chatbot akan diverifikasi langsung berdasarkan produk yang ada di lapak tersebut.
+6. Sertakan **link Vercel** dan link **lapak Shopee** yang dipilih di dalam laporan — jawaban chatbot akan diverifikasi langsung berdasarkan produk yang ada di lapak tersebut.
 
 #### **Langkah deploy ke Vercel:**
 
