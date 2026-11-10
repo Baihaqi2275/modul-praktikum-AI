@@ -1956,7 +1956,7 @@ Lampirkan pada laporan: screenshot QR Code, status bot siap, dan contoh percakap
 ## 4. Tugas
 
 > [!NOTE]
-> Tugas dikerjakan secara **individu** selama satu minggu setelah praktikum. Kumpulkan laporan menggunakan **Template Laporan Praktikum Individu** melalui LMS. Sertakan **link Vercel** website yang sudah di-deploy di dalam laporan.
+> Tugas dikerjakan secara **individu** selama satu minggu setelah praktikum. Kumpulkan laporan menggunakan **Template Laporan Praktikum Individu** melalui LMS.
 
 Sebelum mengerjakan tugas, pelajari terlebih dahulu teknik scraping data melalui modul berikut:
 
