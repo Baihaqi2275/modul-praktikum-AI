@@ -52,12 +52,14 @@ Pesan WhatsApp masuk
 - Mengintegrasikan Groq LLM dengan riwayat percakapan dan jawaban berlapis (template, FAQ, AI)
 - Membuat dashboard web untuk memantau bot, kuota Groq, dan katalog produk
 - Men-deploy website statis ke Vercel (tugas)
+
 ### Prasyarat
 
 1. Install Node.js versi **LTS** dari situs resmi [https://nodejs.org/](https://nodejs.org/)
 2. Pastikan Node.js berhasil terinstal dengan mengetik node -v dan npm -v di terminal/CMD.
 3. Siapkan aplikasi WhatsApp di HP yang siap ditautkan dengan bot.
 4. Siapkan akun Groq untuk membuat API Key (Langkah 5).
+
 > [!WARNING]
 > **Perhatian:** whatsapp-web.js **bukan API resmi WhatsApp**. Bot otomatis berisiko membuat nomor dibatasi atau diblokir. **Gunakan nomor cadangan**, bukan nomor utama, dan jangan gunakan bot untuk mengirim pesan massal.
 
@@ -137,6 +139,7 @@ Buat berkas .env di direktori utama project. Berkas ini menyimpan API Key Groq, 
 2. Klik **Create API Key**, beri nama, lalu pilih masa aktif (*expired*) **90 days**.
 3. Salin API Key dan simpan baik-baik — key hanya ditampilkan sekali.
 4. Isi file .env sebagai berikut:
+
 **.env**
 ```env
 GROQ_API_KEY=gsk_isi_api_key_groq_kalian_disini
@@ -1051,33 +1054,6 @@ app.get("/api/knowledge", (req, res) => {
   res.json(knowledge);
 });
  
-// Simpan Kata Kunci & Respons Manual ke Basis Pengetahuan
-app.post("/api/knowledge", (req, res) => {
-  try {
-    const { keyword, response } = req.body;
-    if (!keyword || !response) {
-      return res.status(400).json({ success: false, error: "Keyword dan response wajib diisi." });
-    }
- 
-    const key = keyword.toLowerCase().trim();
-    loadKnowledge();
- 
-    if (!knowledge.keywords) knowledge.keywords = {};
-    if (!knowledge.responses) knowledge.responses = {};
- 
-    knowledge.keywords[key] = key;
-    knowledge.responses[key] = response.trim();
- 
-    fs.writeFileSync(KNOWLEDGE_PATH, JSON.stringify(knowledge, null, 2), "utf-8");
-    console.log(`[Knowledge Updated]: Keyword '${key}' berhasil disimpan.`);
- 
-    res.json({ success: true, data: { keyword: key, response: response.trim() } });
-  } catch (err) {
-    console.error("Gagal menyimpan basis pengetahuan:", err);
-    res.status(500).json({ success: false, error: err.message });
-  }
-});
- 
 // Ambil daftar produk CSV
 app.get("/api/products", (req, res) => {
   ragEngine.loadData();
@@ -1138,7 +1114,7 @@ process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 | POST | /api/bot/start · /api/bot/stop | Menyalakan / mematikan bot |
 | POST | /api/bot/reset | Reset sesi WhatsApp (logout & hapus sesi yang macet) |
 | GET | /api/groq/quota | Sisa kuota request/token Groq |
-| GET · POST | /api/knowledge | Melihat / menambah FAQ |
+| GET | /api/knowledge | Melihat daftar FAQ |
 | GET | /api/products | Daftar produk dari CSV |
 
 ### Langkah 12: Membuat Tampilan Dashboard Web (public/index.html)
@@ -1236,11 +1212,7 @@ Dashboard berfungsi memantau status koneksi bot, nomor WhatsApp yang terhubung (
  
     <section class="panel">
       <h2>Basis Pengetahuan (Manual Responses)</h2>
-      <p class="section-desc">Tambahkan kata kunci dan respons kustom untuk pertanyaan umum pelanggan.</p>
-      <input id="keyword" placeholder="Kata kunci (contoh: jam buka, promo, lokasi)">
-      <textarea id="response" placeholder="Respons manual yang akan dijawab oleh bot"></textarea>
-      <button id="saveBtn">Simpan Kata Kunci</button>
-      <div id="saveNotice" class="notice hidden"></div>
+      <p class="section-desc">Kata kunci dan respons FAQ dari <code>knowledge.json</code> yang dijawab bot tanpa memanggil AI.</p>
  
       <div class="knowledge-preview">
         <h3>Daftar Kata Kunci Aktif:</h3>
@@ -1399,41 +1371,11 @@ button:hover {
   background: #5d6d7e;
 }
  
-#saveBtn {
-  background: #2980b9;
-}
- 
-#saveBtn:hover {
-  background: #2471a3;
-}
- 
 .section-desc {
   color: #666;
   font-size: 14px;
   margin-top: -6px;
   margin-bottom: 16px;
-}
- 
-input, textarea {
-  display: block;
-  width: 100%;
-  margin: 12px 0;
-  padding: 12px 14px;
-  border: 1px solid #dcdfe6;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.2s;
-}
- 
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #3498db;
-}
- 
-textarea {
-  min-height: 120px;
-  resize: vertical;
 }
  
 .hidden {
@@ -1602,23 +1544,6 @@ textarea {
   color: #2d5a3c;
 }
  
-.notice {
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 13px;
-}
- 
-.notice.success {
-  background: #d4edda;
-  color: #155724;
-}
- 
-.notice.error {
-  background: #f8d7da;
-  color: #721c24;
-}
- 
 .knowledge-preview {
   margin-top: 24px;
   padding-top: 16px;
@@ -1702,10 +1627,6 @@ const qrSection = document.getElementById("qrSection");
 const readySection = document.getElementById("readySection");
 const botNumberText = document.getElementById("botNumberText");
  
-const keywordInput = document.getElementById("keyword");
-const responseInput = document.getElementById("response");
-const saveBtn = document.getElementById("saveBtn");
-const saveNotice = document.getElementById("saveNotice");
 const knowledgeList = document.getElementById("knowledgeList");
 const productsBody = document.getElementById("productsBody");
  
@@ -1866,53 +1787,6 @@ if (resetBtn) {
   };
 }
  
-// Handler Simpan Basis Pengetahuan
-if (saveBtn) {
-  saveBtn.onclick = async () => {
-    const keyword = keywordInput.value.trim();
-    const response = responseInput.value.trim();
- 
-    if (!keyword || !response) {
-      showNotice("Kata kunci dan respons tidak boleh kosong!", "error");
-      return;
-    }
- 
-    try {
-      saveBtn.disabled = true;
-      saveBtn.textContent = "Menyimpan...";
-      const res = await fetch(`${API_URL}/knowledge`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ keyword, response })
-      });
-      const data = await res.json();
- 
-      if (data.success) {
-        showNotice(`Kata kunci "${keyword}" berhasil disimpan!`, "success");
-        keywordInput.value = "";
-        responseInput.value = "";
-        loadKnowledgeList();
-      } else {
-        showNotice(`Gagal menyimpan: ${data.error || "Kesalahan server"}`, "error");
-      }
-    } catch (err) {
-      showNotice("Gagal menghubungi server.", "error");
-    } finally {
-      saveBtn.disabled = false;
-      saveBtn.textContent = "Simpan Kata Kunci";
-    }
-  };
-}
- 
-function showNotice(msg, type) {
-  if (!saveNotice) return;
-  saveNotice.textContent = msg;
-  saveNotice.className = `notice ${type}`;
-  setTimeout(() => {
-    saveNotice.className = "notice hidden";
-  }, 4000);
-}
- 
 // Muat daftar kata kunci yang tersimpan
 async function loadKnowledgeList() {
   if (!knowledgeList) return;
@@ -2050,13 +1924,14 @@ npm run dev
 2. Tunggu QR Code muncul (pertama kali bisa memakan waktu 30–60 detik).
 3. Di HP, buka WhatsApp → **Perangkat tertaut** → **Tautkan perangkat**, lalu pindai QR Code.
 4. Uji bot dari **nomor WhatsApp lain** dengan beberapa skenario berikut:
-| **Pesan uji** | **Lapisan yang menjawab** | **Hasil yang diharapkan** |
-| :--- | :--- | :--- |
-| halo | Template sapaan | Salam pembuka toko, tanpa memanggil AI |
-| alamat / lokasi | FAQ knowledge.json | Alamat toko |
-| ada cincin apa saja? | RAG + Groq LLM | Daftar cincin beserta harga dari katalog |
-| berapa harganya? (lanjutan) | RAG + riwayat + Groq LLM | Bot memahami produk yang dibahas sebelumnya |
-| terima kasih | Template terima kasih | Ucapan penutup, tanpa memanggil AI |
+
+   | **Pesan uji** | **Lapisan yang menjawab** | **Hasil yang diharapkan** |
+   | :--- | :--- | :--- |
+   | halo | Template sapaan | Salam pembuka toko, tanpa memanggil AI |
+   | alamat / lokasi | FAQ knowledge.json | Alamat toko |
+   | ada cincin apa saja? | RAG + Groq LLM | Daftar cincin beserta harga dari katalog |
+   | berapa harganya? (lanjutan) | RAG + riwayat + Groq LLM | Bot memahami produk yang dibahas sebelumnya |
+   | terima kasih | Template terima kasih | Ucapan penutup, tanpa memanggil AI |
 
 ### Troubleshooting
 
@@ -2075,15 +1950,27 @@ Praktikum dinyatakan berhasil apabila:
 - QR Code muncul di dashboard dan akun WhatsApp berhasil ditautkan
 - Terminal menampilkan pesan bahwa **Bot WhatsApp siap digunakan**
 - Pesan dari pengguna mendapatkan balasan dari Groq AI sesuai katalog produk
+
 Lampirkan pada laporan: screenshot QR Code, status bot siap, dan contoh percakapan untuk setiap skenario pengujian pada Langkah 15.
 
 ## 4. Tugas
 
-1. Buatlah **website katalog interaktif** dengan tema bisnis bebas.
-2. Sediakan minimal **4 pilihan kategori** produk atau layanan.
-3. Tambahkan **tombol chat** yang langsung mengarah ke WhatsApp pribadi.
-4. Buat **template pesan otomatis** berdasarkan kategori yang dipilih pengguna.
-5. **Deploy** website tersebut ke Vercel hingga dapat diakses publik.
+> [!NOTE]
+> Tugas dikerjakan secara **individu** selama satu minggu setelah praktikum. Kumpulkan laporan menggunakan **Template Laporan Praktikum Individu** melalui LMS. Sertakan **link Vercel** website yang sudah di-deploy di dalam laporan.
+
+Sebelum mengerjakan tugas, pelajari terlebih dahulu teknik scraping data melalui modul berikut:
+
+📄 **[Download Modul Teknik Scraping Data Shopee](https://drive.google.com/file/d/1R62cpN-EGwXw_YNwi51zqTBzCM2ucmur/view?usp=sharing)**
+
+Setelah mempelajari modul tersebut, kerjakan langkah-langkah berikut:
+
+1. Buka [Shopee](https://shopee.co.id) dan **pilih satu lapak** yang ingin dijadikan sumber data.
+2. **Scraping data produk** lapak tersebut menggunakan teknik yang dipelajari dari modul di atas.
+3. Bangun sebuah **website sederhana** tentang lapak tersebut dan **deploy ke Vercel** hingga dapat diakses publik.
+4. Website wajib memiliki **chatbot berbasis RAG** yang menggunakan data produk hasil scraping.
+5. Buat **gateway WhatsApp** yang terhubung ke chatbot dengan data yang sama.
+6. Sertakan **link Vercel** di dalam laporan — jawaban chatbot akan diverifikasi langsung berdasarkan produk yang ada di lapak tersebut.
+
 #### **Langkah deploy ke Vercel:**
 
 1. Upload project tugas ke repository GitHub.
@@ -2091,8 +1978,9 @@ Lampirkan pada laporan: screenshot QR Code, status bot siap, dan contoh percakap
 3. Pilih **Add New Project**.
 4. **Import** repository katalog Anda.
 5. Klik **Deploy**, lalu buka URL publik hasil deployment.
+
 > [!TIP]
-> **Petunjuk tombol chat WhatsApp:** Tautan https://wa.me/62xxxxxxxxxx?text=... membuka chat WhatsApp ke nomor tujuan dengan pesan yang sudah terisi. Isi parameter text dengan template pesan sesuai kategori (gunakan encodeURIComponent() di JavaScript).
+> **Petunjuk tombol chat WhatsApp:** Tautan `https://wa.me/62xxxxxxxxxx?text=...` membuka chat WhatsApp ke nomor tujuan dengan pesan yang sudah terisi. Isi parameter `text` dengan template pesan sesuai kategori (gunakan `encodeURIComponent()` di JavaScript).
 
 > [!NOTE]
-> Kumpulkan laporan menggunakan **Template Laporan Praktikum Individu** beserta link repository GitHub dan URL Vercel.
+> **Petunjuk gateway WhatsApp:** Server chatbot harus berjalan di komputer lokal. Pastikan bot aktif saat pengujian berlangsung.
