@@ -647,6 +647,26 @@ const server = app.listen(PORT, () => {
   }
 });
 
+// Tangani error jika port bentrok (EADDRINUSE)
+server.on("error", err => {
+  if (err.code === "EADDRINUSE") {
+    console.error(`\n[FATAL ERROR] Port ${PORT} sudah digunakan oleh proses lain!`);
+    console.error(`Solusi: Matikan proses di port ${PORT} dengan perintah: npx kill-port ${PORT} atau ganti PORT=${Number(PORT) + 1} di file .env\n`);
+  } else {
+    console.error("[FATAL ERROR] Terjadi kesalahan server:", err.message);
+  }
+  process.exit(1);
+});
+
+// Cegah proses Node.js auto-exit saat terjadi error asinkronus tak terduga
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("[Peringatan Unhandled Rejection]:", reason);
+});
+
+process.on("uncaughtException", err => {
+  console.error("[Peringatan Uncaught Exception]:", err.message);
+});
+
 // Penutupan bersih saat server dihentikan (mencegah Chrome nyangkut)
 async function gracefulShutdown(signal) {
   console.log(`\nMenerima sinyal ${signal}, membersihkan proses...`);
