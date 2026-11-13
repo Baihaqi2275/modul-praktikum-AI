@@ -70,6 +70,7 @@ Pertanyaan Pengguna + Role (misal: "mahasiswa")
 2. Pastikan Python dan pip aktif dengan menjalankan `python --version` dan `pip --version` di terminal.
 3. Siapkan teks editor **Visual Studio Code** dan browser modern (Chrome/Edge).
 4. Siapkan akun Groq di `https://console.groq.com/` untuk membuat **GROQ_API_KEY**.
+5. Unduh dataset default praktikum dari repositori GitHub: [https://github.com/Baihaqi2275/modul-praktikum-AI/tree/main/Pertemuan%202%20-%20Custom%20AI%20Chatbot%20RAG%20Berbasis%20Role/dataset](https://github.com/Baihaqi2275/modul-praktikum-AI/tree/main/Pertemuan%202%20-%20Custom%20AI%20Chatbot%20RAG%20Berbasis%20Role/dataset).
 
 > **Catatan Lingkungan Praktikum: **Selama sesi praktikum di kelas, seluruh aplikasi dijalankan secara lokal pada `http://127.0.0.1:8000`. Pastikan koneksi internet aktif agar backend dapat menghubungi Groq Cloud API dan memuat Tailwind CSS CDN pada antarmuka web.
 
@@ -159,6 +160,8 @@ DB_PATH=modul2ai.db
 ### Langkah 5: Menyiapkan Dataset Default (Folder dataset/)
 
 Siapkan dokumen referensi layanan akademik pada folder `dataset/` (misalnya file TXT panduan layanan SSC dan file PDF pedoman TAK). Saat server dijalankan pertama kali dan tabel `documents` masih kosong, fungsi `seed_default_documents()` akan otomatis mengekstrak, memotong menjadi *chunks*, dan mengindeks seluruh file tersebut ke database untuk role `mahasiswa`.
+
+Unduh seluruh file dataset default melalui link berikut lalu simpan ke dalam folder `dataset/`: [https://github.com/Baihaqi2275/modul-praktikum-AI/tree/main/Pertemuan%202%20-%20Custom%20AI%20Chatbot%20RAG%20Berbasis%20Role/dataset](https://github.com/Baihaqi2275/modul-praktikum-AI/tree/main/Pertemuan%202%20-%20Custom%20AI%20Chatbot%20RAG%20Berbasis%20Role/dataset)
 
 ### Langkah 6: Membuat Modul Autentikasi (app/auth.py)
 
