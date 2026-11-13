@@ -1,0 +1,221 @@
+# Alur Menghubungi SSC Telkom University
+
+**Panduan singkat untuk mahasiswa saat ingin bertanya atau mengajukan kendala akademik, kemahasiswaan, layanan IT, keuangan, dan kebutuhan administrasi kampus.**
+
+## 1. Tentukan Jenis Kebutuhan
+
+Pastikan dulu masalahnya termasuk:
+
+* Akademik
+* TAK/SKPI
+* Keuangan
+* PuTI/IT
+* Perpustakaan
+* Logistik
+* Layanan administrasi lainnya
+
+↓
+
+## 2. Siapkan Identitas dan Bukti
+
+Cantumkan:
+
+* Nama
+* NIM
+* Program Studi
+* Kampus
+* Kontak aktif
+* Deskripsi kendala
+
+Lampiran pendukung:
+
+* Screenshot
+* Bukti pembayaran
+* Dokumen pendukung lainnya
+
+↓
+
+## 3. Pilih Jalur Layanan
+
+### Layanan Offline
+
+* Datang ke SSC
+* Ambil nomor antrean
+
+### Layanan Online
+
+* Kirim email
+* Hubungi kanal resmi sesuai kategori layanan
+
+↓
+
+## 4. Sampaikan Permintaan dengan Rapi
+
+Gunakan:
+
+* Subjek yang jelas
+* Kronologi singkat
+* Penjelasan bantuan yang diminta
+
+Hindari pesan terlalu singkat seperti:
+
+"Kak ini kenapa?"
+
+↓
+
+## 5. Pantau Tindak Lanjut
+
+Periksa secara berkala:
+
+* Email
+* WhatsApp
+* Tiket layanan
+
+Simpan:
+
+* Nomor tiket
+* Nama petugas
+* Tanggal komunikasi
+
+↓
+
+## 6. Follow-up Bila Belum Selesai
+
+Jika belum ada respons setelah waktu layanan yang wajar:
+
+* Kirim follow-up secara sopan
+* Sertakan ringkasan permintaan
+* Lampirkan bukti pengiriman sebelumnya
+
+---
+
+## Catatan Penting
+
+Artikel resmi SSC Telkom University Surabaya menjelaskan bahwa layanan SSC tersedia secara:
+
+* Offline
+* Online
+
+### Layanan Offline
+
+Mahasiswa:
+
+1. Datang ke SSC
+2. Mengambil karcis antrean
+3. Menyampaikan kebutuhan kepada operator
+
+### Layanan Online
+
+Mahasiswa:
+
+1. Mengirim email sesuai format
+2. Menunggu tindak lanjut
+3. Menerima respons melalui email atau WhatsApp
+
+---
+
+# 2. Jalur Menghubungi SSC
+
+| Jalur                     | Kapan Digunakan                                                                                          | Alur Singkat                                                                                           | Catatan                                                                                  |
+| ------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Offline / datang langsung | Cocok jika kendala membutuhkan penjelasan langsung, dokumen fisik, atau konsultasi tatap muka            | Datang ke SSC → Ambil nomor antrean → Sampaikan kebutuhan → Petugas memproses → Pantau tindak lanjut   | SSC Surabaya disebut berada di lantai 2 gedung utama pada artikel resmi kampus           |
+| Online / email            | Cocok jika kendala dapat dijelaskan melalui tulisan dan bukti digital                                    | Kirim email dengan subjek jelas → Isi identitas dan kronologi → Lampirkan bukti → Tunggu tindak lanjut | Artikel resmi mencantumkan email [ssc@ittelkom-sby.ac.id](mailto:ssc@ittelkom-sby.ac.id) |
+| Kanal unit terkait        | Cocok jika masalah sudah jelas masuk ke unit tertentu (TAK/SKPI, PuTI/IT, LAA FRI, keuangan, TOSS, dll.) | Pilih kontak sesuai kategori → Kirim pesan → Simpan bukti komunikasi → Follow-up bila perlu            | Gunakan kanal resmi terbaru bila kontak SSC utama tidak sesuai kategori layanan          |
+
+---
+
+# 3. Contoh Kanal yang Bisa Dipilih
+
+Pilih kanal berdasarkan jenis kebutuhan. Jangan mengirim permintaan yang sama ke terlalu banyak kanal sekaligus, kecuali diarahkan oleh petugas.
+
+| Kebutuhan                       | Kanal / Kontak yang Relevan                                                                 | Contoh Penggunaan                                                                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| SSC Telkom University Surabaya  | Email: [ssc@ittelkom-sby.ac.id](mailto:ssc@ittelkom-sby.ac.id) dan no WhatsApp 085179793597 | Pertanyaan umum layanan mahasiswa dan administrasi kampus Surabaya                                         |
+| Akademik FRI / LAA FRI Surabaya | Link layanan: linktr.ee/laa.fri.sby                                                         | Kendala administrasi akademik fakultas, surat, atau layanan akademik FRI Surabaya                          |
+| TAK dan SKPI                    | Nomor layanan: 6281323233955                                                                | Pengajuan TAK, validasi kegiatan, SKPI, atau status persetujuan yang belum selesai                         |
+| PuTI / Layanan IT               | Nomor: 6285179793597 dan Ticketing: satu.telkomuniversity.ac.id → E-Ticket                  | Kendala aplikasi kampus, akun, jaringan, iGracias, atau bug sistem yang dikelola IT                        |
+| TOSS                            | linktr.ee/toss.telu atau toss.telkomuniversity.ac.id                                        | Surat keterangan mahasiswa aktif, surat dispensasi, surat rekomendasi, atau surat pernyataan kelakuan baik |
+
+---
+
+## Pusat Akses Linktree SSC (`https://linktr.ee/ssctel.usby`)
+
+**Pusat Akses Linktree Unit Layanan Mahasiswa** Telkom University Surabaya (`https://linktr.ee/ssctel.usby`) menyediakan link langsung ke dashboard SSC dan berbagai unit layanan terkait:
+
+| No | Layanan / Unit | Link Resmi |
+| -- | -------------- | ------------ |
+| 1 | Dashboard SSC | https://ssc.telu-sby.id |
+| 2 | Denah Gedung Telkom University Surabaya | https://www.instagram.com/p/Ddaw5GTFKg_/ |
+| 3 | Unit Akademik | https://linktr.ee/laa.upps.sby |
+| 4 | Unit Kemahasiswaan | https://linktr.ee/kemahasiswaan.univtelkomsby |
+| 5 | Situ TAK Telkom University | https://situ-kem.telkomuniversity.ac.id/tak/auth/login |
+| 6 | Unit PuTI | https://linktr.ee/putisby |
+| 7 | Unit Logistik | https://taplink.cc/unitlogam |
+| 8 | Unit Laboratorium | https://linktr.ee/labtelkomunivsby |
+| 9 | Unit Open Library | https://linktr.ee/openlibtus |
+| 10 | Unit Admisi | https://linktr.ee/smbtelkomsurabaya |
+| 11 | Unit LAC | https://lac.telkomuniversity.ac.id/ |
+
+---
+
+# 4. Format Pesan yang Disarankan
+
+Subjek: Permohonan Bantuan [Jenis Kendala] - [Nama] - [NIM]
+
+Assalamualaikum/selamat pagi Kak,
+
+Saya ingin meminta bantuan terkait [jelaskan jenis kendala].
+Berikut data saya:
+
+Nama: [Nama lengkap]
+NIM: [NIM]
+Program studi: [Program studi]
+Kampus/Fakultas: [Kampus/Fakultas]
+Nomor WhatsApp aktif: [Nomor]
+
+Kronologi singkat:
+[Isi kronologi 2–4 kalimat.
+Jelaskan sejak kapan terjadi,
+apa yang sudah dicoba,
+dan hasil yang muncul.]
+
+Bukti pendukung:
+[Sebutkan lampiran,
+misalnya screenshot,
+bukti pembayaran,
+atau dokumen terkait.]
+
+Mohon arahan atau tindak lanjutnya ya Kak.
+
+Terima kasih.
+
+---
+
+# 5. Checklist Sebelum Menghubungi
+
+| No | Checklist                                                                  |
+| -- | -------------------------------------------------------------------------- |
+| 1  | Nama, NIM, prodi, fakultas/kampus sudah ditulis lengkap                    |
+| 2  | Kendala sudah dijelaskan dengan kronologi singkat dan jelas                |
+| 3  | Bukti pendukung seperti screenshot atau dokumen sudah dilampirkan          |
+| 4  | Kanal layanan sudah sesuai kategori masalah                                |
+| 5  | Nomor tiket, email balasan, atau bukti chat sudah disimpan untuk follow-up |
+
+---
+
+# 6. Sumber Rujukan
+
+1. Student Service Center, Pusat Layanan One-stop-Shop Bagi Mahasiswa ITTelkom Surabaya
+   https://surabaya.telkomuniversity.ac.id/student-service-center-pusat-layanan-one-stop-shop-bagi-mahasiswa-ittelkom-surabaya/
+
+2. Kontak Layanan Telkom University
+   https://servicedesk.telkomuniversity.ac.id/daftar-kontak-layanan-tel-u/
+
+3. Nomor Layanan Telkom University
+   https://bis.telkomuniversity.ac.id/nomor-layanan-telkom-university/
+
+---
+
+## Catatan Pembaruan
+
+Nomor layanan dan alur kontak dapat berubah sewaktu-waktu. Jika terdapat perbedaan dengan pengumuman terbaru dari kampus, ikuti informasi resmi terbaru dari Telkom University atau arahan petugas layanan.

@@ -1,0 +1,8 @@
+Jadwal SSC bukanya hanya di jam kantor, hari Senin sampai Jumat. Dan ada batasan lagi, yaitu ada jam 8 sampai jam 4 sore.
+
+Layanan SSC tersedia:
+
+* Hari Senin sampai Jumat
+* Pukul 08.00 sampai 16.00 WIB
+
+SSC tidak melayani pada hari Sabtu, Minggu, atau di luar jam operasional tersebut.
