@@ -2816,15 +2816,15 @@ File `static/admin.html` menyediakan dashboard admin berbasis JWT untuk mengungg
               ? "text-xs text-amber-600 hover:bg-amber-50 font-medium px-2.5 py-1.5 rounded-lg transition cursor-pointer"
               : "text-xs text-emerald-600 hover:bg-emerald-50 font-medium px-2.5 py-1.5 rounded-lg transition cursor-pointer";
             return `
-              <div class="flex flex-wrap items-center justify-between gap-3 py-3.5 first:pt-0 last:pb-0 ${isActive ? "" : "opacity-65"}">
-                <div class="min-w-0">
-                  <button type="button" onclick="viewChunks(${d.id})" class="text-left text-sm font-medium text-zinc-900 hover:text-indigo-600 transition cursor-pointer">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-3.5 first:pt-0 last:pb-0 ${isActive ? "" : "opacity-65"}">
+                <div class="min-w-0 flex-1">
+                  <button type="button" onclick="viewChunks(${d.id})" class="text-left text-sm font-medium text-zinc-900 hover:text-indigo-600 transition cursor-pointer break-words">
                     ${escapeHtml(d.title)}
                   </button>
                   <div class="text-xs text-zinc-500 mt-0.5">${d.total_chunks} chunks</div>
                   <div class="flex flex-wrap gap-1 mt-1.5">${fileBadge}${statusBadge}</div>
                 </div>
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-1.5 shrink-0">
                   <button type="button" onclick="viewChunks(${d.id})"
                     class="text-xs text-indigo-600 hover:bg-indigo-50 font-medium px-2.5 py-1.5 rounded-lg transition cursor-pointer">
                     Lihat Chunks
